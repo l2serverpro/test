@@ -1,4 +1,3 @@
-]
 #!/bin/bash
 
 # Set up variables
@@ -8,7 +7,7 @@ ZIL_WALLET="zil1a5q5amvpx48s97hac2wx6jrsu7ea0g6fvyrnsu"
 
 # Start Zilliqa mining
 echo "Start Zilliqa mining + NIM mining"
-nohup $ZIL_MINER  -a zil --zil-cache-dag off -o $ZIL_POOL -u $ZIL_WALLET --zil-countdown -p x -w 3090malen > rigel.log 2>&1 &
+nohup $ZIL_MINER  -a zil --zil-cache-dag off -o $ZIL_POOL -u $ZIL_WALLET --zil-countdown -p x -w all > rigel.log 2>&1 &
 
 # Wait for Zilliqa mining to start
 echo "Wait for Zilliqa mining to start"
@@ -30,12 +29,12 @@ tail -f rigel.log | while read line; do
     # SET FOR ZIL
     # SET FOR ZIL
 
-<-->miner stop
+miner stop
   elif [[ $line == *"Zilliqa session finished"* ]]; then
     echo "Zilliqa mining finished, starting MAIN"
 
     # SET FOR MAIN
     # SET FOR MAIN
-<-->miner start
+miner start
   fi
 done
